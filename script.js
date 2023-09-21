@@ -11,14 +11,20 @@ function renderBoard(n) {
 
     for (let i=0; i<n; i++){
 
-        let row = document.createElement('div');
-        row.setAttribute('style','display: flex; flex: 1;');
+        let row = rowList[i];
+        row.style.display = 'flex';
+        row.style.flex = 1;
 
-        for (let j=0; j<n; j++) row.append(rowList[j]);
+        for (let j=0; j<n; j++){
+            let square = document.createElement('div');
+            square.style.flex = 1;
+            square.classList.add('square');
+            row.append(square);
+        }
 
         container.append(row);
     }
 }
 
 
-renderBoard(4);
+renderBoard(16);
