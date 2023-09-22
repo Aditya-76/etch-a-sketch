@@ -1,5 +1,6 @@
 function renderBoard(n) {
-    if (n>100) n=100;
+    console.log(`rendering board`);
+    if (n>200) n=200;
     let rowList = []; //row of n div nodes
 
     for (let i=0; i<n; i++){
@@ -19,6 +20,10 @@ function renderBoard(n) {
             let square = document.createElement('div');
             square.style.flex = 1;
             square.classList.add('square');
+            square.addEventListener('mouseenter', e => {
+                let color = getRandomColor();
+                e.target.style.backgroundColor = color;
+            });
             row.append(square);
         }
 
@@ -26,5 +31,29 @@ function renderBoard(n) {
     }
 }
 
+//asking grid size input from user
+let size = 64;
+const sizeButton = document.querySelector('#grid-size');
+sizeButton.addEventListener('click', e => {
+    let temp = prompt('Enter the dimensions of Sketch Pad (Enter 25 if 25*25 grid)');
+    size = temp ? temp : size;
+    document.querySelector(`.container`).innerHTML = '';
+    renderBoard(size);
+})
 
-renderBoard(16);
+//reset the board
+document.querySelector('#reset').addEventListener('click', () => {
+    document.querySelector(`.container`).innerHTML = '';
+    renderBoard(size);
+});
+
+//method to create random color
+function getRandomColor() {
+    let r = Math.floor(Math.random()*255);
+    let g = Math.floor(Math.random()*255);
+    let b = Math.floor(Math.random()*255);
+    // let a = Math.random();
+    return `rgb(${r},${g},${b},${0.8})`;
+}
+
+renderBoard(size);
