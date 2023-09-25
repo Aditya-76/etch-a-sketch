@@ -10,13 +10,19 @@ body {
 }
 
 .container {
-    width: 80vmin;
-    height: 80vmin;
+    width: 90vmin;
+    height: 90vmin;
     border: 2px solid #ff8c22;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     background: white;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .buttons {
@@ -35,9 +41,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.5s;
 }
 .button:hover {
     cursor: pointer;
+    transform: scale(1.1);
 }
 
 .controls, .modes {
@@ -52,4 +60,6 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap : 1rem;
+    justify-content: center;
+    align-items: center;
 }
