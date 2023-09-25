@@ -21,7 +21,7 @@ function renderBoard(n) {
             square.style.flex = 1;
             square.classList.add('square');
             square.addEventListener('mouseenter', e => {
-                let color = getRandomColor();
+                let color = isClassic ? '#ff8c22' : getRandomColor();
                 e.target.style.backgroundColor = color;
             });
             row.append(square);
@@ -31,8 +31,24 @@ function renderBoard(n) {
     }
 }
 
+let size = 100;
+
+//classic - color mode
+let isClassic = false;
+let classicButton = document.getElementById('classic');
+let colorButton = document.getElementById('color');
+classicButton.addEventListener('click', (e) => {
+    isClassic=true;
+    document.querySelector(`.container`).innerHTML = '';
+    renderBoard(size);
+});
+colorButton.addEventListener('click', () => {
+    isClassic=false;
+    document.querySelector(`.container`).innerHTML = '';
+    renderBoard(size);
+});
+
 //asking grid size input from user
-let size = 64;
 const sizeButton = document.querySelector('#grid-size');
 sizeButton.addEventListener('click', e => {
     let temp = prompt('Enter the dimensions of Sketch Pad (Enter 25 if 25*25 grid)');

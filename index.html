@@ -8,12 +8,21 @@
 </head>
 <body>
     <h1>Etch-A-Sketch</h1>
-    <div>
-        <button id="grid-size">Change grid size</button>
-        <button id="reset">Reset Board</button>
+    <div class="outer">
+        <div class="buttons">
+            <div class="controls">
+                <div class="button" id="grid-size">CHANGE GRID SIZE</div>
+                <div class="button" id="reset">RESET BOARD</div>
+            </div>
+            <br>
+            <div class="modes">
+                <div class="button" id="classic">CLASSIC MODE</div>
+                <div class="button" id="color">COLOR MODE</div>
+            </div>
+        </div>
+        <br>
+        <div class="container"></div>
     </div>
-    <hr>
-    <div class="container"></div>
     <script src="./script.js"></script>
 </body>
 </html>
