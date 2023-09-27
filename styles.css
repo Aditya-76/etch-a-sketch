@@ -10,6 +10,7 @@ body {
 }
 
 .container {
+    box-shadow: -5px 5px 10px darkgray;
     width: 90vmin;
     height: 90vmin;
     border: 2px solid #ff8c22;
